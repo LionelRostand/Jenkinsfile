@@ -7,7 +7,7 @@ pipeline {
                sh 'ssh -oStrictHostKeyChecking=no root@192.168.1.20 git clone https://github.com/LionelRostand/odoo.git'
             }
         }
-    }
+    
      
         stage('Built') {
             steps {
@@ -21,6 +21,6 @@ pipeline {
                sh 'ssh -oStrictHostKeyChecking=no root@192.168.1.20  docker images'
             }
         }
-    
+    }
 }
 
