@@ -4,21 +4,29 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-               sh 'ssh -oStrictHostKeyChecking=no root@192.168.1.20 git clone https://github.com/LionelRostand/odoo.git'
+                 sh ' hostname'
+               sh ' git clone https://github.com/LionelRostand/odoo.git'
             }
         }
-    }
-     stages {
+    
+     
         stage('Built') {
             steps {
-               sh 'ssh -oStrictHostKeyChecking=no root@192.168.1.20  cd odoo  && docker build -t mybuildimage .'
+                 sh ' hostname'
+               sh 'cd odoo  && docker-compose up  .'
             }
         }
-    }
-     stages {
+     
         stage('images') {
             steps {
-               sh 'ssh -oStrictHostKeyChecking=no root@192.168.1.20  docker images'
+                 sh ' hostname'
+               sh '  docker images'
+            }
+        }
+       
+        stage('conteneur  ') {
+            steps {
+               sh ' docker ps -a '
             }
         }
     }
