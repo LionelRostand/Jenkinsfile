@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
+                 sh ' hostname'
                sh ' git clone https://github.com/LionelRostand/odoo.git'
             }
         }
@@ -11,12 +12,14 @@ pipeline {
      
         stage('Built') {
             steps {
+                 sh ' hostname'
                sh 'cd odoo  && docker build -t myodoo .'
             }
         }
      
         stage('images') {
             steps {
+                 sh ' hostname'
                sh '  docker images'
             }
         }
